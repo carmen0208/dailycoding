@@ -1,3 +1,6 @@
 [submodule "react/formula_react"]
 	path = react/formula_react
 	url = git@github.com:carmen0208/formula_react.git
+[submodule "algorithm"]
+	path = algorithm
+	url = git@github.com:carmen0208/algorithm-ninja.git
