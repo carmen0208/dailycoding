@@ -7,3 +7,6 @@
 [submodule "design"]
 	path = design
 	url = git@github.com:carmen0208/design-ninja.git
+[submodule "rust/tryRust"]
+	path = rust/tryRust
+	url = git@github.com:carmen0208/tryRust.git
