@@ -10,3 +10,6 @@
 [submodule "rust/tryRust"]
 	path = rust/tryRust
 	url = git@github.com:carmen0208/tryRust.git
+[submodule "react/ReduxSimpleStarter"]
+	path = react/ReduxSimpleStarter
+	url = git@github.com:carmen0208/ReduxSimpleStarter.git
