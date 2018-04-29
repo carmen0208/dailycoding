@@ -12,4 +12,8 @@
 	url = git@github.com:carmen0208/tryRust.git
 [submodule "react/ReduxSimpleStarter"]
 	path = react/ReduxSimpleStarter
-	url = git@github.com:carmen0208/ReduxSimpleStarter.git
+    url = git@github.com:carmen0208/ReduxSimpleStarter.git
+[submodule "nodejs/12factornodedocker"]
+	path = nodejs/12factornodedocker
+	url = git@github.com:carmen0208/12factornodedocker.git
+
