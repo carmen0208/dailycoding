@@ -16,4 +16,7 @@
 [submodule "nodejs/12factornodedocker"]
 	path = nodejs/12factornodedocker
 	url = git@github.com:carmen0208/12factornodedocker.git
+[submodule "javascript/javascript-ninja"]
+	path = javascript/javascript-ninja
+	url = git@github.com:carmen0208/javascript-ninja.git
 
