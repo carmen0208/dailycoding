@@ -1,0 +1,17 @@
+{
+  "name": "rebuild-react",
+  "version": "1.0.0",
+  "description": "Learn React by rebuild react",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "carmen liu",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1"
+  }
+}
