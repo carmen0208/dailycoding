@@ -18,13 +18,16 @@ const React = {
 
 function render (vnode, container) {
   console.log(vnode)
-  if(typeof vnode === 'string') {
+  // vnode.tag
+  // vnode.children
+  if (typeof vnode === 'string') {
     let textNode = document.createTextNode(vnode)
-    return container.children(textNode)
+    return container.appendChild(textNode)
   }
   const dom = document.createElement(vnode.tag)
-  vnode.children.forEach(child => child.render(child, dom))
+  vnode.children.forEach(child => render(child, dom))
   return container.appendChild(dom)
+  // vnode.attrs
 }
 
 const ReactDOM = {
