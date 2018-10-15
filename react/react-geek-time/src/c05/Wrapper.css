@@ -1,0 +1,43 @@
+.node {
+  box-sizing: border-box;
+  position: absolute;
+  border: 1px solid #999;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  top: 70px;
+  border-radius: 20px;
+}
+.node:after {
+  font-size: 20px;
+  font-family: Arial;
+  line-height: 40px;
+  color: #555;
+  content: attr(data-name);
+}
+.node .node:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 40.62257748298549px;
+  background-color: #999;
+  left: 0px;
+  top: 0px;
+}
+.node .node:last-child {
+  left: 40px;
+}
+.node .node:last-child:before {
+  transform: translate(-2px, -37.311288741492746px) rotate(-0.5191461142465228rad);
+}
+.node .node:first-child {
+  left: -40px;
+}
+.node .node:first-child:before {
+  transform: translate(40px, -35.311288741492746px) rotate(0.5191461142465228rad);
+}
+.R {
+  left: 200px;
+  top: 100px;
+}
