@@ -1,13 +1,13 @@
 import { renderComponent } from '../react-dom/render'
 class Component {
-  constructor( props = {}) {
+  constructor (props = {}) {
     this.props = props
     this.state = {}
   }
 
-  setState( stateChange ){
+  setState (stateChange) {
     Object.assign(this.state, stateChange)
-    renderComponent( this )
+    renderComponent(this)
   }
 }
 

@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/cluster.js",
+  "scripts": {
+    "start": "node \"src/cluster.js\"",
+    "pretty": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^1.14.3"
+  }
+}
