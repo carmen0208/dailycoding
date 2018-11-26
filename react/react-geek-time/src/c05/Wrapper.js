@@ -9,16 +9,16 @@ const C = logComponent('C')
 const D = logComponent('D')
 // const E = logComponent('E')
 
-export default class  Wrapper extends React.Component {
+export default class Wrapper extends React.Component {
   shape1 () {
     return (
       <Root>
-      <A>
-        <B />
-        <C />
-      </A>
-      <D />
-    </Root>
+        <A>
+          <B />
+          <C />
+        </A>
+        <D />
+      </Root>
     )
   }
 
@@ -83,7 +83,7 @@ export default class  Wrapper extends React.Component {
     )
   }
 
-  render() {
+  render () {
     return this[this.props.shape]()
   }
 }

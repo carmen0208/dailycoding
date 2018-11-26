@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function logComponent (name) {
   class _LogNode extends React.Component {
-    constructor(props) {
+    constructor (props) {
       super(props)
       console.log(name + ' in created. ')
     }
@@ -20,7 +20,7 @@ export default function logComponent (name) {
       console.log(name + ' in componentWillUnmount.')
     }
 
-    render() {
+    render () {
       return (
         <div className={'node ' + name} data-name={name}>
           {this.props.children}

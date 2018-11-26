@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom'
 import Wrapper from './Wrapper'
 
 export default class DomDiff extends React.Component {
-  constructor (props){
+  constructor (props) {
     super(props)
     this.wrapper = this.wrapper.bind(this)
   }
   wrapper (event) {
     console.log(event.target.id)
-    ReactDOM.render(<Wrapper shape={event.target.id}/>,
+    ReactDOM.render(<Wrapper shape={event.target.id} />,
       document.getElementById('diff-root'))
   }
 
-  render() {
+  render () {
     return (
       <div>
         <button id='shape1' onClick={this.wrapper}>Shape 1</button>
