@@ -9,6 +9,8 @@ import Clock from "./c03/Clock";
 // import SnapshotSample from "./c04/SnapshotSample";
 import DomDiff from "./c05/DomDiff";
 // import { AdvancedTabSelectorSample } from "./c06/AdvancedTabSelector";
+import AdvancedTabSelector from './c06/AdvancedTabSelector'
+import HOCExample from './c06/HOCExample'
 // import LocaleSample from "./c07/LocaleSample";
 // import PureRedux from "./c11/PureRedux";
 // import Counter from "./c12/Counter";
@@ -33,6 +35,7 @@ import DomDiff from "./c05/DomDiff";
 // import ReselectSample from "./c43/ReselectSample";
 // import Suspense from "./c44/Suspense";
 import "antd/dist/antd.css";
+import withTimer from "./c06/withTimer"
 
 import "./index.css";
 
@@ -48,7 +51,8 @@ const routeMap = {
   // "stateful-tab-selector": StatefulTabSelectSample,
   // "snapshot-sample": SnapshotSample,
   "dom-diff": DomDiff,
-  // "adv-tab-selector": AdvancedTabSelectorSample,
+  "adv-tab-selector": withTimer(AdvancedTabSelector),
+  "06-HOC-example": HOCExample,
   // "locale-sample": LocaleSample,
   clock: Clock,
   // "pure-redux": PureRedux,

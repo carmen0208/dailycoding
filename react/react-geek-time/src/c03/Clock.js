@@ -1,34 +1,34 @@
 import React from 'react'
 export default class Class extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     console.log('Clock constructed')
-    this.state = {date: new Date()};
+    this.state = {date: new Date()}
   }
 
-  componentDidMount() {
+  componentDidMount () {
     console.log('Clock did mount')
-    this.timeID = setInterval(() => this.tick(), 1000);
+    this.timeID = setInterval(() => this.tick(), 1000)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     console.log('Clock will unMount')
     clearInterval(this.timeId)
   }
 
   // New props, setState(), forceUpdate()
-  componentDidUpdate() {
+  componentDidUpdate () {
     console.log('Clock did update')
   }
 
-  tick() {
+  tick () {
     this.setState({
       date: new Date()
     })
   }
 
-  render() {
-    return(
+  render () {
+    return (
       <div>
         <h1>Hello, How are you</h1>
         <h2> It is {this.state.date.toLocaleTimeString()}</h2>
