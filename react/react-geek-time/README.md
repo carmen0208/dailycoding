@@ -49,3 +49,7 @@ class MyComponent extends React.Component {
 
 ##### Advantage:
 How the componenet be rendered is controlled by the place where use the componenet, instead of add more functions to component it self to fit in all the situations
+
+
+## 07-Context API
+

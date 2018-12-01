@@ -11,7 +11,7 @@ import DomDiff from "./c05/DomDiff";
 // import { AdvancedTabSelectorSample } from "./c06/AdvancedTabSelector";
 import { AdvancedTabSelectorSample } from './c06/AdvancedTabSelector'
 import HOCExample from './c06/HOCExample'
-// import LocaleSample from "./c07/LocaleSample";
+import LocaleSample from "./c07/LocaleSample";
 // import PureRedux from "./c11/PureRedux";
 // import Counter from "./c12/Counter";
 // import AsyncAction from "./c13/AsyncAction";
@@ -53,7 +53,7 @@ const routeMap = {
   "dom-diff": DomDiff,
   "adv-tab-selector":AdvancedTabSelectorSample,
   "06-HOC-example": HOCExample,
-  // "locale-sample": LocaleSample,
+  "07-locale-sample": LocaleSample,
   clock: Clock,
   // "pure-redux": PureRedux,
   // counter: Counter,
