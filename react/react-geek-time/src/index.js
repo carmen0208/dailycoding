@@ -12,7 +12,7 @@ import DomDiff from "./c05/DomDiff";
 import { AdvancedTabSelectorSample } from './c06/AdvancedTabSelector'
 import HOCExample from './c06/HOCExample'
 import LocaleSample from "./c07/LocaleSample";
-// import PureRedux from "./c11/PureRedux";
+import PureRedux from "./c11/PureRedux";
 // import Counter from "./c12/Counter";
 // import AsyncAction from "./c13/AsyncAction";
 // import ReduxMiddleware from "./c13/ReduxMiddleware";
@@ -55,7 +55,7 @@ const routeMap = {
   "06-HOC-example": HOCExample,
   "07-locale-sample": LocaleSample,
   clock: Clock,
-  // "pure-redux": PureRedux,
+  "11-pure-redux": PureRedux,
   // counter: Counter,
   // "async-action": AsyncAction,
   // "redux-middleware": ReduxMiddleware,

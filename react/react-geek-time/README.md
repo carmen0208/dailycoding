@@ -53,3 +53,46 @@ How the componenet be rendered is controlled by the place where use the componen
 
 ## 07-Context API
 
+* [Use Case](./src/c07/LocaleSample.js)
+
+## 10 Redux
+* Trait of Redux: 
+  * Single Source of Truth
+  * Predictable(immutable) -> state+action = new state
+  * 纯函数更新store(输出结果完全取决于输入参数)
+  ```js
+  const counter = (state = initialState, action) => {
+    switch (action.type) {
+      case 'PLUS_ONE':
+        return { count: state.count + 1 }
+      case 'MINUS_ONE':
+        return { count: state.count - 1 }
+      case 'CUSTOM_COUNT':
+        return { count: state.count + action.payload.count }
+      default:
+        break
+    }
+    return state
+  }
+  ```
+
+  ![Redux](/doc/resource/images/redux.png)
+
+  * Secrete of bindActionCreator
+  ```js
+  function bindActionCreator(actionCreator, dispatch) {
+    return function () {
+      return dispatch(actionCreator.apply(this, arguments));
+    };
+  }
+  ```
+
+  * Usage of combineReducers
+  ```js
+  const store = createStore(
+    combineReducers({
+      todos,
+      counter
+    })
+  )
+  ```
