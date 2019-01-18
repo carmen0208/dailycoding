@@ -1,5 +1,5 @@
 import React from 'react'
-import { createStore, bindActionCreators } from 'redux'
+import { createStore, combineReducers, bindActionCreators } from 'redux'
 
 function run () {
   // console.log('this is redux function')
@@ -19,22 +19,23 @@ function run () {
     return state
   }
 
+  const todos = (state ={}) => {
+    return state
+  }
+
   // Create Store
 
-  const store = createStore(
-    counter
-  )
+  const store = createStore(combineReducers({
+    counter,
+    todos
+  }))
 
-  // action
+  // Action Creator
   function plusOne () {
     // action
     return { type: 'PLUS_ONE' }
   }
 
-  // ActionCreator
-  const dispatchedPlusOne = bindActionCreators(plusOne, store.dispatch)
-
-  const dispatchedCustomCount = bindActionCreators(customCount, store.dispatch)
   function minusOne () {
     return { type: 'MINUS_ONE' }
   }
@@ -43,11 +44,16 @@ function run () {
     return { type: 'CUSTOM_COUNT', payload: { count } }
   }
 
+
   store.subscribe(() => console.log(store.getState()))
+  const dispatchedPlusOne = bindActionCreators(plusOne, store.dispatch)
   dispatchedPlusOne()
+  // store.dispatch(plusOne(5))
   store.dispatch(minusOne())
-  // store.dispatch(customCount(5))
+
+  const dispatchedCustomCount = bindActionCreators(customCount, store.dispatch)
   dispatchedCustomCount(5)
+  // store.dispatch(customCount(5))
 }
 export default () => (
   <div>
