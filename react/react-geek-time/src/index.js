@@ -13,7 +13,7 @@ import { AdvancedTabSelectorSample } from './c06/AdvancedTabSelector'
 import HOCExample from './c06/HOCExample'
 import LocaleSample from './c07/LocaleSample'
 import PureRedux from './c11/PureRedux'
-// import Counter from './c12/Counter'
+import Counter from './c12/Counter'
 // import AsyncAction from './c13/AsyncAction'
 // import ReduxMiddleware from './c13/ReduxMiddleware'
 // import OrgActions from './c14/OrgActions'
@@ -55,8 +55,8 @@ const routeMap = {
   '06-HOC-example': HOCExample,
   '07-locale-sample': LocaleSample,
   clock: Clock,
-  '11-pure-redux': PureRedux
-  // counter: Counter,
+  '11-pure-redux': PureRedux,
+  '12-counter': Counter
   // 'async-action': AsyncAction,
   // 'redux-middleware': ReduxMiddleware,
   // 'org-actions': OrgActions,
