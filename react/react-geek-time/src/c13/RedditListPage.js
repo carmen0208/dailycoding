@@ -1,21 +1,25 @@
 import React, { Component } from 'react'
 import './RedditListPage.css'
 import { Provider, connect} from 'react-redux'
-import { createStore, combineReducers, bindActionCreators } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import { createStore, bindActionCreators, applyMiddleware } from 'redux'
 import redditReducer from './redditReducer'
 import fetchRedditList from './redditActions'
 
 export class RedditListPage extends Component {
   render() {
     const { fetchRedditList } = this.props.actions
-    const  redditList  = this.props.redditList
+    const  {redditList, fetchRedditListPendding, fetchRedditListError}  = this.props
     return(
       <div className="examples-reddit-list-page">
       <h1>Reddit API Usage</h1>
       <p>This demo shows how to use Redux async actions to fetch data from Reddit's REST API.</p>
-      <button className="btn-fetch-reddit"  onClick={fetchRedditList}>
+      <button className="btn-fetch-reddit" disabled={fetchRedditListPendding} onClick={fetchRedditList}>
+        {fetchRedditListPendding ? 'Fetching': 'Fetch reactjs topics'}
       </button>
-
+      {fetchRedditListError && (
+          <div className="fetch-list-error">Failed to load: {fetchRedditListError.toString()}</div>
+        )}
       {redditList.length > 0 ? (
           <ul className="examples-reddit-list">
             {redditList.map(item => (
@@ -32,8 +36,9 @@ export class RedditListPage extends Component {
   }
 }
 function mapStateToProps(state) {
+  // console.log(state)
   return {
-    redditList: state.redditList
+    ...state
   }
 }
 
@@ -46,7 +51,12 @@ const ConnectedCounter = connect(mapStateToProps,mapDispatchToProps)(RedditListP
 
 
 // Create Store
-const store = createStore(redditReducer)
+const store = configStore()
+
+function configStore(initialState) {
+  // console.log(initialState)
+  return createStore(redditReducer,initialState,applyMiddleware(thunkMiddleware))
+}
 
 export default class RedditListPageSample extends React.Component {
   render() {

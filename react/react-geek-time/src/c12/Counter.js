@@ -1,5 +1,5 @@
 import React from 'react'
-import { createStore, combineReducers, bindActionCreators } from 'redux'
+import { createStore, bindActionCreators } from 'redux'
 import { Provider, connect } from 'react-redux'
 
 const initialState = { count: 0 }
