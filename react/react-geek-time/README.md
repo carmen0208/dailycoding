@@ -96,3 +96,30 @@ How the componenet be rendered is controlled by the place where use the componen
     })
   )
   ```
+
+  #### Immutability
+  * Why need Immutability
+    * Performance, only have to check if the reference changed instead of check if the values changes
+    * Easy to Debug and track, as you have 2 state to compare, like Redux Dev Tool
+
+* How to write Immutability data
+  * {...} or Object.assign
+  ```javascript
+  const state = {filter: 'complate', todos: ['Learning English']}
+  const newState1 = {...state, todos: [...state.todos, 'Learn Development Skills']}
+  const newState2 = Object.assign({}, state, {todos:[...state.todos, 'Learn Development Skills']})
+  ```
+  * [immutability-helper](https://github.com/kolodny/immutability-helper)
+  ```js
+  import update from 'immutability-helper'
+  const state = {filter: 'complate', todos: ['Learning English']}
+  const newState = update(state, {todos: {:push:['Learning Development Skills']}})
+  ```
+  * [immer](https://github.com/mweststrate/immer)
+  ```js
+  import produce from 'immer'
+  const state = {filter: 'complate', todos: ['Learning English']}
+  const newState = produce(state, draftState => {
+    draftState.todos.push('Learning Development Skills')
+  })
+  ```
