@@ -11,7 +11,6 @@ const host = 'http://www.reddit.com/'
 axios.defaults.host = host;
 axios.defaults.adapter = httpAdapter;
 
-
 const middleware = [thunk]
 const mockStore = configureMockStore(middleware)
 describe('redditActions',()=> {
@@ -33,7 +32,9 @@ describe('redditActions',()=> {
       .reply(200, { data: { children: list } })
 
     const store = mockStore({ redditRedditList: []})
-    store.dispatch(fetchRedditList()).then(()=> {
+    return store.dispatch(fetchRedditList()).then(()=> {
+      // getActions is a function from 'redux-mock-store'
+      // usage: https://github.com/dmitry-zaets/redux-mock-store
       const actions = store.getActions()
       expect(actions[0]).toHaveProperty('type', 'EXAMPLES_FETCH_REDDIT_LIST_BEGIN')
       expect(actions[1]).toHaveProperty('type', 'EXAMPLES_FETCH_REDDIT_LIST_SUCCESS')
