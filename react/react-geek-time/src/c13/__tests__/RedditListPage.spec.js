@@ -45,4 +45,16 @@ describe('RedditLastPage',()=> {
 
     expect(renderedComponent.find('.fetch-list-error').length).toBe(1)
   })
+
+  it('fetch reddit list button clicked', () => {
+    const pageProps = {
+      redditList: [],
+      actions: {
+        fetchRedditList: jest.fn()
+      }
+    }
+    const renderedComponent = shallow(<RedditListPage {...pageProps} />)
+    renderedComponent.find('.btn-fetch-reddit').simulate('click')
+    expect(pageProps.actions.fetchRedditList.mock.calls.length).toBe(1)
+  })
 })
