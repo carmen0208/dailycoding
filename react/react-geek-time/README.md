@@ -123,3 +123,18 @@ How the componenet be rendered is controlled by the place where use the componen
     draftState.todos.push('Learning Development Skills')
   })
   ```
+
+  #### Unit Test
+  * React makes unit test easier
+    * React applications 很少需要访问浏览器API
+    * 虚拟DOM可以在nodejs环境下运行测试
+    * Redux隔离了状态管理,纯数据层单元测试
+
+#### Unit Testing Tools
+* Jest: Unit Test Framework
+* JS DOM, 浏览器环境的nodejs模拟
+* Enzyme: React组件渲染和测试
+* nock : 模拟http请求
+* sinon: 函数模拟和调用跟踪
+* istanbul:单元测试覆盖率
+

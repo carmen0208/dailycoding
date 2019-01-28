@@ -9,8 +9,8 @@
     "antd": "3.7.1",
     "axios": "0.18.0",
     "d3": "5.5.0",
-    "react": "16.4.1",
-    "react-dom": "16.4.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "react-redux": "5.0.7",
     "react-router": "latest",
     "react-router-dom": "4.3.1",
@@ -21,7 +21,10 @@
     "reselect": "3.0.1",
     "simple-cache-provider": "0.7.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
