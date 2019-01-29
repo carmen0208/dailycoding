@@ -5,6 +5,7 @@ import thunkMiddleware from 'redux-thunk'
 import { createStore, bindActionCreators, applyMiddleware } from 'redux'
 import redditReducer from './redditReducer'
 import fetchRedditList from './redditActions'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 export class RedditListPage extends Component {
   render() {
@@ -55,7 +56,12 @@ const store = configStore()
 
 function configStore(initialState) {
   // console.log(initialState)
-  return createStore(redditReducer,initialState,applyMiddleware(thunkMiddleware))
+  const composeEnhancers = composeWithDevTools({
+    // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+  });
+  return createStore(redditReducer,
+                    initialState,
+                    composeEnhancers(applyMiddleware(thunkMiddleware)))
 }
 
 export default class RedditListPageSample extends React.Component {
