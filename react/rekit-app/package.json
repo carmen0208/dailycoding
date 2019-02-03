@@ -111,5 +111,8 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "description": "rekit-app created by Rekit."
+  "description": "rekit-app created by Rekit.",
+  "devDependencies": {
+    "react-loadable": "^5.5.0"
+  }
 }
