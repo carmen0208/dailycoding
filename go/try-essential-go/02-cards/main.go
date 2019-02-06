@@ -1,22 +1,23 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
 	// var card string = "Ace of Spades"
 	// =
 	// card := "Ace of Spades"
-	cards := []string{"Ace of Spades", newCard()}
-	cards = append(cards, "Six of Spades")
+	// cards := deck{"Ace of Spades", newCard()}
+	// cards = append(cards, "Six of Spades")
 	// card = "Five of Diamond"
 	// fmt.Println(cards)
-	for i, card := range cards {
-		fmt.Println(i, card)
-	}
+	// cards := newDeck()
+	// cards.print()
+	// hand , remainingCards := deal(cards, 5)
+	// hand.print()
+	// remainingCards.print()
+	// cards.saveToFile("cards.txt")
+	cards := newDeckFromFile("cards.txt")
+	cards.print()
 }
 
-func newCard() string {
-	return "Five of Diamond"
-}
+// func newCard() string {
+// 	return "Five of Diamond"
+// }
