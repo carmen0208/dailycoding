@@ -5,6 +5,8 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
+	"math/rand"
+	"time"
 )
 
 // Create a new type of 'deck' which is a slice of string
@@ -49,4 +51,15 @@ func newDeckFromFile(filename string) deck {
 	}
 	s := strings.Split(string(bs), ",")
 	return deck(s)
+}
+
+func (d deck) suffle() {
+	seed := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(seed)
+	for i := range d {
+		// go use the same seed as a generate to random generate value. we need to end up to get a own seed
+		// newPosition := rand.Intn(len(d) - 1 )
+		newPosition := r.Intn(len(d)- 1)
+		d[i], d[newPosition]= d[newPosition], d[i]
+	}
 }

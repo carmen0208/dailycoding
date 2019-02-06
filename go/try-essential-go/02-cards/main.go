@@ -15,6 +15,7 @@ func main() {
 	// remainingCards.print()
 	// cards.saveToFile("cards.txt")
 	cards := newDeckFromFile("cards.txt")
+	cards.suffle()
 	cards.print()
 }
 
