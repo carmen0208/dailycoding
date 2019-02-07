@@ -1,0 +1,51 @@
+package main
+
+import "fmt"
+
+type contactInfo struct {
+	email   string
+	zipCode int
+}
+
+type person struct {
+	firstName string
+	lastName string
+	contactInfo
+}
+func main() {
+	carmen := person{
+		firstName: "carmen",
+		lastName: "liu",
+		contactInfo: contactInfo{
+			email: "carmen.liujia@gmail.com",
+			zipCode: 1024,
+		},
+	}
+
+	// carmenPointer := &carmen
+	// carmenPointer.updateName("carmen carmen")
+	carmen.updateName("carmen carmen")
+	carmen.print()
+
+	var alex person
+	alex.firstName = "Alex"
+	alex.lastName = "Nothing"
+	alex.print()
+}
+
+// this would not works , need pointers
+// func (p person) updateName(newFirstName string) {
+// 	p.firstName = newFirstName
+// }
+
+func (pointerToPerson *person) updateName(newFirstName string) {
+	(*pointerToPerson).firstName = newFirstName
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
+}
+
+// func newCard() string {
+// 	return "Five of Diamond"
+// }
