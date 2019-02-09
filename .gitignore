@@ -4,3 +4,4 @@
 **/dist
 **/target
 **/*.log
+**/bindle.js
