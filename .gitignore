@@ -5,4 +5,5 @@
 **/target
 **/*.log
 **/bindle.js
-**/build/style.css
+**/build/*.css
+**/build/*.jpg
