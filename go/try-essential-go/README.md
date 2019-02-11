@@ -18,3 +18,9 @@
 
 * valuetype vs reference type
 ![valuetype vs reference type](./resource/valuetype_reference_type.png)
+
+
+## Map
+* Map is like **hash from ruby** or **object from javascript**
+#### Struct vs Map
+![Struct vs Map](./resource/struct_map.png)
