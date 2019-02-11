@@ -6,7 +6,8 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bindle.js'
+    filename: 'bindle.js',
+    publicPath: 'build/'
   },
   module: {
     rules: [
