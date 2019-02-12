@@ -4,6 +4,6 @@
 **/dist
 **/target
 **/*.log
-**/bindle.js
+**/*bindle.js
 **/build/*.css
 **/build/*.jpg
