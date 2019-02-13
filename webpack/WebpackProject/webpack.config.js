@@ -1,5 +1,5 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+var webpack = require('webpack');
+var path = require('path');
 
 const config = {
   mode: 'development',
@@ -23,27 +23,17 @@ const config = {
       {
         test: /\.css$/,
         use: [
+          { loader: 'style-loader' },
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'css-loader',
             options: {
-              // you can specify a publicPath here
-              // by default it use publicPath in webpackOptions.output
-              publicPath: '../'
-            },
-          },
-          "css-loader"
+              modules: true
+            }
+          }
         ]
       }
     ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "style.css",
-      chunkFilename: "[id].css"
-    })
-  ]
+  }
 }
 
 module.exports = config

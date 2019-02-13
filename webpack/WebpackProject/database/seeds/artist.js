@@ -1,6 +1,8 @@
-import _ from 'lodash';
-import faker from 'faker';
-import { GENRES } from '../constants';
+// import { GENRES } from '../constants';
+
+const _ = require('lodash');
+const faker = require('faker');
+const { GENRES } = require('../constants');
 
 module.exports = function() {
   return {
