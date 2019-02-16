@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const VENDOR_LIBS = [
   'faker',
@@ -77,6 +78,7 @@ const config = {
     }
   },
   plugins: [
+    new CleanWebpackPlugin('dist', {}),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
@@ -84,9 +86,7 @@ const config = {
       chunkFilename: '[id].[contenthash].css',
     }),
     new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/index.html',
-      filename: 'index.html'
+      template: './src/index.html'
     })
   ],
 }
