@@ -23,7 +23,7 @@ const config = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -80,11 +80,13 @@ const config = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "style.css",
-      chunkFilename: "[id].css"
+      filename: 'style.[contenthash].css',
+      chunkFilename: '[id].[contenthash].css',
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      hash: true,
+      template: './src/index.html',
+      filename: 'index.html'
     })
   ],
 }

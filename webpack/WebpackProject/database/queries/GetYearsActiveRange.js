@@ -14,6 +14,7 @@ module.exports = () => {
       min: _.minBy(db, a => a.yearsActive).yearsActive,
     };
 
+    console.log(range)
     resolve(range);
   });
 };
