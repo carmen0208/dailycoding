@@ -1,12 +1,29 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const VENDOR_LIBS = [
+  'faker',
+  'lodash',
+  'react',
+  'react-dom',
+  'react-input-range',
+  'react-redux',
+  'react-router',
+  'redux',
+  'redux-form',
+  'redux-thunk'
+];
 
 const config = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    bundle: './src/index.js',
+    vendor: VENDOR_LIBS
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -36,14 +53,40 @@ const config = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  },
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: "style.css",
       chunkFilename: "[id].css"
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
     })
-  ]
+  ],
 }
 
 module.exports = config
