@@ -17,7 +17,6 @@ const VENDOR_LIBS = [
 ];
 
 const config = {
-  mode: 'development',
   entry: {
     bundle: './src/index.js',
     vendor: VENDOR_LIBS
