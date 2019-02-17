@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "saleit",
+    "slug": "102-saleit",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "carmen.saleit",
+      "publishBundlePath": "ios/saleit/Supporting/shell-app.bundle",
+      "publishManifestPath": "ios/saleit/Supporting/shell-app-manifest.json"
+    },
+    "android": {
+      "package": "com.carmen",
+      "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
+      "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
+    },
+    "isDetached": true,
+    "detach": {
+      "iosExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v2.10.2-sdk32.0.0-c59c23cd-1d49-49d2-a633-d03f9d554cf6.tar.gz",
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.10.6-sdk32.0.0-83a07c97-312f-4bbf-8b19-5c609bc3c386.tar.gz"
+    },
+    // "scheme": "exp9cc5becd25ba47b7923e87661f835301"
+    "scheme": "exp"
+  }
+}
