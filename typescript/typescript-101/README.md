@@ -34,3 +34,7 @@ exports.one = 1;
 ```javascript
 export var one = 1;
 ```
+
+## how to write function with typescript
+
+exampe:  [index.ts](./index.ts)
