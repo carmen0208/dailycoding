@@ -13,6 +13,8 @@ import {
 } from '../utils/misc';
 
 import Logo from '../components/logo'
+import LoginPanel from '../components/Login/loginPanel'
+
 export default class LoginScreen extends React.Component {
 
   constructor(props){
@@ -43,6 +45,11 @@ export default class LoginScreen extends React.Component {
 
           />
         </View>
+        <LoginPanel
+          show={this.state.logoAnimation}
+          orientation={this.state.orientation}
+          platform={this.state.platform}
+        />
       </ScrollView>
     )
   }
