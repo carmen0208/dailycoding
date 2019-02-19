@@ -38,3 +38,13 @@ export var one = 1;
 ## how to write function with typescript
 
 exampe:  [index.ts](./index.ts)
+
+
+### Deal with DOM
+
+it is majorly about how to deal with cast element to a specific element in order to use the methods
+* example:
+```sh
+parcel dom-element.html
+```
+
