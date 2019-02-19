@@ -4,7 +4,7 @@ import {
   AUTO_SIGN_IN,
   GET_USER_POSTS,
   DELETE_USER_POST
-} from '../types';
+} from '../types.js';
 
 import axios from 'axios';
 import { SIGNUP, SIGNIN ,REFRESH, FIREBASEURL} from '../../utils/misc';
@@ -50,6 +50,7 @@ export function signUp(data){
           "Content-Type":"application/json"
       }
   }).then( response => {
+      console.log(response.data)
       return response.data
   }).catch(e =>{
       return false
