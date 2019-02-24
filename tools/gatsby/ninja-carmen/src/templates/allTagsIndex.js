@@ -1,12 +1,22 @@
 import React from "react"
-// import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 const AllTagsTemplate = ({data, pageContext}) => {
-console.log(pageContext)
+  const { tags } = pageContext
   return (
     <div style={{fontFamily: 'avenir'}}>
       <div>
-        tags here
+        <ul>
+          {tags.map((tagName, index) => {
+            return (
+              <li key={index}>
+                <Link to={`/tags/${tagName}`}>
+                  {tagName}
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </div>
   )
