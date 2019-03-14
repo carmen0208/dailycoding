@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="//unpkg.com/systemjs/dist/system.js"></script>
+<script src="./plunker-config/typescript-config.js"></script>
+<script src="./plunker-config/app-config.js"></script>
+<script src="./plunker-config/rxjs-plnkr-bundle.js"></script>
+
+
+<body>
+    <!-- PLUNKER CONFIGURATION -->
+
+    <div id="app-container"></div>
+    
+    <script>
+      (function () {
+        var body = document.querySelector('body');
+        body.style['fontFamily'] = 'monospace';
+        body.style['fontSize'] = '2em';
+        console.log = function (x) { body.innerText += x + '\n'; };
+      }());
+    </script>
+    
+    <script>
+        SystemJS.import('index.js');
+    </script>
+
+    <!-- END PLUNKER CONFIGURATION -->
+
+    
+    <!-- LESSON CODE -->
+    
+    <button id="start">Start</button>
+    
+    <!-- END LESSON CODE -->
+    
+</body>
