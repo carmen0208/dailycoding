@@ -5,14 +5,12 @@ import { NgJsonEditorModule } from 'ang-jsoneditor';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { JsoneditorComponent } from './jsoneditor/jsoneditor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
-    ServersComponent,
-    JsoneditorComponent
+    ServersComponent
   ],
   imports: [
     BrowserModule,
