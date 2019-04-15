@@ -22,7 +22,7 @@ func newDeck() deck {
 	cards := deck{}
 
 	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
-	cardValues := []string{"Ace", "Two", "Three", "Four"}
+	cardValues := []string{"One", "Two", "Three", "Four"}
 
 	for _, suit := range cardSuits {
 		for _, value := range cardValues {
@@ -32,13 +32,16 @@ func newDeck() deck {
 	return cards
 }
 
+// split the number of cards by size which is a index length
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
 func (d deck) toString() string {
+	// get list of string and join it to be one string
 	return strings.Join([]string(d), ",")
 }
+
 func (d deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }
@@ -59,6 +62,8 @@ func (d deck) suffle() {
 	for i := range d {
 		// go use the same seed as a generate to random generate value. we need to end up to get a own seed
 		// newPosition := rand.Intn(len(d) - 1 )
+		// https://golang.org/pkg/crypto/rand/
+		// generate the index between 0 - (deck length -1)
 		newPosition := r.Intn(len(d)- 1)
 		d[i], d[newPosition]= d[newPosition], d[i]
 	}

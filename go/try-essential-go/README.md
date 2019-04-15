@@ -5,6 +5,32 @@
 * reference : https://golang.org/pkg/
 
 
+#### How to run go
+
+```sh
+go build # build but not run
+go run # build go and run
+```
+
+* `package main` is important if the go project means to have a executable file to run. regardless of main package, other package name would not generate executable file when run go build, it would considered as a shared pagkage instead.
+
+### Array vs Slice
+* Array: fixed length list of things
+* Slice An array that can grow or shrink
+
+#### OO Approach of go
+[example](02-cards/deck.go)
+![Basic go type](./resource/basic_go_type.png)
+
+* receiver
+![receiver](./resource/receiver.png)
+
+#### Testing
+```sh
+# file should look like _test.go
+go test
+```
+
 ### variable and pointer
 * Variable and Pointer
 
@@ -23,4 +49,4 @@
 ## Map
 * Map is like **hash from ruby** or **object from javascript**
 #### Struct vs Map
-![Struct vs Map](./resource/struct_map.png)
+c
