@@ -9,18 +9,27 @@ type contactInfo struct {
 
 type person struct {
 	firstName string
-	lastName string
+	lastName  string
 	contactInfo
 }
+
 func main() {
 	carmen := person{
 		firstName: "carmen",
-		lastName: "liu",
+		lastName:  "liu",
 		contactInfo: contactInfo{
-			email: "carmen.liujia@gmail.com",
+			email:   "carmen.liujia@gmail.com",
 			zipCode: 1024,
 		},
 	}
+
+	// An `&` turned value into address:
+	fmt.Println(&carmen)
+	carmenPointer := &carmen
+	fmt.Println(carmenPointer.lastName)
+	// by change the pointer, changes the values as well
+	carmenPointer.lastName = "lau"
+	fmt.Println(carmenPointer.lastName)
 
 	// carmenPointer := &carmen
 	// carmenPointer.updateName("carmen carmen")
