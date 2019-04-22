@@ -1,8 +1,14 @@
 package com.carmen.learning.service;
 
 import com.carmen.learning.model.Coffee;
+import com.carmen.learning.money.MoneyDeserializer;
+import com.carmen.learning.money.MoneySerializer;
 import com.carmen.learning.repository.CoffeeRepository;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 import lombok.extern.slf4j.Slf4j;
+import org.joda.money.Money;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Example;
@@ -25,6 +31,9 @@ public class CoffeeService {
     @Autowired
     private CoffeeRepository coffeeRepository;
 
+//    @Autowired
+//    private RedisTemplate<String, Coffee> redisTemplate;
+
     @Autowired
     @Qualifier("objectRedisTemplate")
     private RedisTemplate<String, Coffee> redisTemplate;
@@ -33,7 +42,10 @@ public class CoffeeService {
         HashOperations<String, String, Coffee> hashOperations = redisTemplate.opsForHash();
         if (redisTemplate.hasKey(CACHE) && hashOperations.hasKey(CACHE, name)) {
             log.info("Get coffee {} from Redis.", name);
-            return Optional.of(hashOperations.get(CACHE, name));
+
+            ObjectMapper mapper = getObjectMapper();
+            Coffee coffee = mapper.convertValue(hashOperations.get(CACHE, name), new TypeReference<Coffee>() { });
+            return Optional.of(coffee);
         }
         ExampleMatcher matcher = ExampleMatcher.matching()
             .withMatcher("name", exact().ignoreCase());
@@ -52,5 +64,14 @@ public class CoffeeService {
         redisTemplate.expire("CarmenCoffee", 1, TimeUnit.MINUTES);
         redisTemplate.expire(CACHE, 1, TimeUnit.MINUTES);
         return coffee;
+    }
+
+    public ObjectMapper getObjectMapper() {
+        ObjectMapper mapper = new ObjectMapper();
+        JodaModule module = new JodaModule();
+        module.addSerializer(Money.class, new MoneySerializer());
+        module.addDeserializer(Money.class, new MoneyDeserializer());
+        mapper.registerModule(module);
+        return mapper;
     }
 }

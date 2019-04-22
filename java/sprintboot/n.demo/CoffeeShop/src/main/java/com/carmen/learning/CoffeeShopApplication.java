@@ -41,14 +41,13 @@ public class CoffeeShopApplication implements ApplicationRunner {
 //	public RedisTemplate<String, Coffee> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
 //		RedisTemplate<String, Coffee> template = new RedisTemplate<>();
 //		template.setConnectionFactory(redisConnectionFactory);
-//
-//		Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Coffee.class);
+//        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Coffee.class);
 //		ObjectMapper mapper = new ObjectMapper();
 //		JodaModule module = new JodaModule();
 //		module.addSerializer(Money.class, new MoneySerializer());
 //		module.addDeserializer(Money.class, new MoneyDeserializer());
 //		mapper.registerModule(module);
-//		jackson2JsonRedisSerializer.setObjectMapper(mapper);
+//        jackson2JsonRedisSerializer.setObjectMapper(mapper);
 //		template.setKeySerializer(new StringRedisSerializer());
 //		template.setValueSerializer(jackson2JsonRedisSerializer);
 //		template.setHashKeySerializer(new StringRedisSerializer());
@@ -68,15 +67,20 @@ public class CoffeeShopApplication implements ApplicationRunner {
         redisTemplate.setKeySerializer(serializer);
         redisTemplate.setHashKeySerializer(serializer);
 
+        ObjectMapper mapper = getObjectMapper();
+        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer(mapper));
+        redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer(mapper));
+
+        return redisTemplate;
+    }
+
+    public ObjectMapper getObjectMapper() {
         ObjectMapper mapper = new ObjectMapper();
         JodaModule module = new JodaModule();
         module.addSerializer(Money.class, new MoneySerializer());
         module.addDeserializer(Money.class, new MoneyDeserializer());
         mapper.registerModule(module);
-        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer(mapper));
-//        redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer(mapper));
-
-        return redisTemplate;
+        return mapper;
     }
 
     @Bean
