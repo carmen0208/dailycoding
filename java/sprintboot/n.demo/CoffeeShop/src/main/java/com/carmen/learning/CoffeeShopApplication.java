@@ -13,13 +13,19 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 @EnableJpaRepositories
+@EnableTransactionManagement
 @Slf4j
 public class CoffeeShopApplication implements ApplicationRunner {
 
@@ -34,8 +40,10 @@ public class CoffeeShopApplication implements ApplicationRunner {
 	}
 
 	@Override
+	@Transactional
 	public void run(ApplicationArguments args) throws Exception {
 		initOrders();
+		findOrders();
 	}
 
 	private void initOrders() {
@@ -65,6 +73,30 @@ public class CoffeeShopApplication implements ApplicationRunner {
 				.build();
 		orderRepository.save(order);
 		log.info("Order: {}", order);
-
 	}
+
+	private void findOrders() {
+		coffeeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"))
+				.forEach(c -> log.info("Loading {}", c));
+		List<CoffeeOrder> list = orderRepository.findTop3ByOrderByUpdateTimeDescIdAsc();
+		log.info("findTop3ByOrderByUpdateTimeDescIdAsc: {}", getJoinedOrderId(list));
+
+
+		list = orderRepository.findByCustomerOrderById("Carmen Liu");
+		log.info("findByCustomerOrderById: {}", getJoinedOrderId(list));
+		// Will Threw LazyInitializationException if not enable Transaction
+		// How to enable Transaction:
+		// 1. @EnableTransactionManagement
+		// 2. provide @Transaction from the call methods
+		list.forEach(o -> {
+			log.info("Order {}", o.getId());
+			o.getItems().forEach(i -> log.info("  Item {}", i));
+		});
+	}
+
+	private String getJoinedOrderId(List<CoffeeOrder> list) {
+		return list.stream().map(o -> o.getId().toString())
+				.collect(Collectors.joining(","));
+	}
+
 }
