@@ -1,9 +1,11 @@
 package com.carmen.learning.service;
 
 import com.carmen.learning.model.Coffee;
+import com.carmen.learning.model.Customer;
 import com.carmen.learning.money.MoneyDeserializer;
 import com.carmen.learning.money.MoneySerializer;
 import com.carmen.learning.repository.CoffeeRepository;
+import com.carmen.learning.repository.CustomerRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
@@ -18,7 +20,7 @@ import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
@@ -30,6 +32,10 @@ public class CoffeeService {
     private static final String CACHE = "springbucks-coffee";
     @Autowired
     private CoffeeRepository coffeeRepository;
+
+    @Autowired
+    private CustomerRepository customerRepository;
+
 
 //    @Autowired
 //    private RedisTemplate<String, Coffee> redisTemplate;
@@ -63,7 +69,27 @@ public class CoffeeService {
         log.info("################# CarmenCoffee {}", redisTemplate.opsForList().range("CarmenCoffee", 0, -1));
         redisTemplate.expire("CarmenCoffee", 1, TimeUnit.MINUTES);
         redisTemplate.expire(CACHE, 1, TimeUnit.MINUTES);
+
+        saveCustomer();
+        findallCustomer();
         return coffee;
+    }
+
+    private void findallCustomer() {
+        Map<Long, Customer> customers = customerRepository.findAll();
+        customers.forEach((id, customer) -> {
+            log.info("################# Customer id: {}, valus {}", id, customer);
+        });
+
+    }
+
+    private void saveCustomer() {
+        customerRepository.save(new Customer(1, "Jack", "Smith"));
+        customerRepository.save(new Customer(2, "Adam", "Johnson"));
+        customerRepository.save(new Customer(3, "Kim", "Smith"));
+        customerRepository.save(new Customer(4, "David", "Williams"));
+        customerRepository.save(new Customer(5, "Peter", "Davis"));
+
     }
 
     public ObjectMapper getObjectMapper() {

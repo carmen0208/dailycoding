@@ -65,7 +65,7 @@ public class CoffeeShopApplication implements ApplicationRunner {
         // Json not support Joda Money, need to write MoneySerializer myself
         RedisSerializer<String> serializer = new StringRedisSerializer();
         redisTemplate.setKeySerializer(serializer);
-        redisTemplate.setHashKeySerializer(serializer);
+//        redisTemplate.setHashKeySerializer(serializer);
 
         ObjectMapper mapper = getObjectMapper();
         redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer(mapper));
