@@ -31,20 +31,27 @@ export class AboutComponent implements OnInit {
     // vulctrl+shift+p get interval$ type is  Observable<number>
     const interval$ = interval(1000);
 
-    interval$.subscribe(val => {
+    const sub = interval$.subscribe(val => {
       console.log('stream 1 =>' + val);
     });
 
+    setTimeout(() => sub.unsubscribe(), 5000);
 
     const timerInterval$ = timer(3000, 1000);
-    timerInterval$.subscribe(val => {
+    const sub2 = timerInterval$.subscribe(val => {
       console.log('stream 2 =>' + val);
-
     });
+
+    setTimeout(() => sub2.unsubscribe(), 5000);
+
 
     const click$ = fromEvent(document, 'click');
 
-    click$.subscribe(evt => console.log(evt));
+    click$.subscribe(
+      evt => console.log(evt),
+      err => console.log(err),
+      () => console.log('complated')
+    );
 
   }
 
