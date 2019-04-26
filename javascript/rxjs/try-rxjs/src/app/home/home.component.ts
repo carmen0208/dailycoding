@@ -11,9 +11,9 @@ import {Course} from '../model/course';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    beginnerCourses: Course[];
+    beginnerCourses$: Observable<Course[]>;
 
-    advancedCourses: Course[];
+    advancedCourses$: Observable<Course[]>;
 
     constructor() {
 
@@ -22,19 +22,30 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
       const http$ = createHttpObservable('api/courses');
 
-      const course$ = http$.pipe(
-        map(res => Object.values(res['payload']))
-      );
+      const courses$ = http$
+        .pipe(
+          map(res => Object.values(res['payload']))
+        );
+
+      this.beginnerCourses$ = courses$
+        .pipe(
+          map(courses => (courses as Array<Course>).filter(course => course.category === 'BEGINNER'))
+        );
+
+      this.advancedCourses$ = courses$
+        .pipe(
+          map(courses => (courses as Array<Course>).filter(course => course.category === 'ADVANCED'))
+        );
 
       // note: avoid lots of logic. especially callback hell in subscribe call
-      course$.subscribe(
-        courses => {
-          this.beginnerCourses = courses.filter(course => course.category === 'BEGINNER');
-          this.advancedCourses = courses.filter(course => course.category === 'ADVANCED');
-        },
-        noop,
-        () => console.log('complate')
-      );
+      // courses$.subscribe(
+      //   courses => {
+      //     // this.beginnerCourses = courses.filter(course => course.category === 'BEGINNER');
+      //     // this.advancedCourses = courses.filter(course => course.category === 'ADVANCED');
+      //   },
+      //   noop,
+      //   () => console.log('complate')
+      // );
     }
 
 }
