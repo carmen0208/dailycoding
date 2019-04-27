@@ -22,30 +22,34 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
       const http$ = createHttpObservable('api/courses');
 
-      const courses$ = http$
+      // shareReplay is a method that avoid multiply call for every subscribe
+      const courses$: Observable<Course[]> = http$
         .pipe(
-          map(res => Object.values(res['payload']))
+          tap(() => console.log('HTTP request executed')),
+          map(res => Object.values(res['payload'])),
+          shareReplay()
         );
 
       this.beginnerCourses$ = courses$
         .pipe(
-          map(courses => (courses as Array<Course>).filter(course => course.category === 'BEGINNER'))
+          map(courses => courses.filter(course => course.category === 'BEGINNER'))
         );
 
       this.advancedCourses$ = courses$
         .pipe(
-          map(courses => (courses as Array<Course>).filter(course => course.category === 'ADVANCED'))
+          map(courses => courses.filter(course => course.category === 'ADVANCED'))
         );
 
       // note: avoid lots of logic. especially callback hell in subscribe call
-      // courses$.subscribe(
-      //   courses => {
-      //     // this.beginnerCourses = courses.filter(course => course.category === 'BEGINNER');
-      //     // this.advancedCourses = courses.filter(course => course.category === 'ADVANCED');
-      //   },
-      //   noop,
-      //   () => console.log('complate')
-      // );
+      courses$.subscribe(
+        courses => {
+          // this.beginnerCourses = courses.filter(course => course.category === 'BEGINNER');
+          // this.advancedCourses = courses.filter(course => course.category === 'ADVANCED');
+          console.log(courses);
+        },
+        noop,
+        () => console.log('complate')
+      );
     }
 
 }
