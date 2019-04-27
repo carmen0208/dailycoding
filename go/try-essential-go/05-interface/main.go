@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+// type bot interface {
+// 	getGreeting() string
+// }
+
 type bot interface {
 	getGreeting() string
 }

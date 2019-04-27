@@ -48,6 +48,7 @@ func main() {
 // }
 
 func (pointerToPerson *person) updateName(newFirstName string) {
+	// * turn address into value
 	(*pointerToPerson).firstName = newFirstName
 }
 
