@@ -37,11 +37,14 @@ export class CourseDialogComponent implements OnInit, AfterViewInit {
 
     }
 
+    // Difference between mergeMap and concateMap is mergeMap would not wait util the first
+    // observiable is finished. it would fire the observable at the same time.
     ngOnInit() {
       this.form.valueChanges
         .pipe(
           filter(() => this.form.valid),
-          concatMap(changes => this.saveCourse(changes))
+          // concatMap(changes => this.saveCourse(changes))
+          mergeMap(changes => this.saveCourse(changes))
         )
         .subscribe();
 
@@ -49,7 +52,7 @@ export class CourseDialogComponent implements OnInit, AfterViewInit {
     }
 
     saveCourse(changes) {
-      console.log(changes);
+      // console.log(changes);
       return fromPromise(fetch(`/api/courses/${this.course.id}`, {
         method: 'PUT',
         body: JSON.stringify(changes),
@@ -59,8 +62,12 @@ export class CourseDialogComponent implements OnInit, AfterViewInit {
       }));
     }
 
-  ngAfterViewInit() {
-
+    ngAfterViewInit() {
+      fromEvent(this.saveButton.nativeElement, 'click')
+        .pipe(
+          exhaustMap(() => this.saveCourse(this.form.value))
+        )
+        .subscribe();
 
     }
 
