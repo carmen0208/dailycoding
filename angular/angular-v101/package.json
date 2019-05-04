@@ -19,7 +19,6 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
-    "ang-jsoneditor": "^1.7.3",
     "bootstrap": "^3.4.1",
     "core-js": "^2.5.4",
     "jsoneditor": "^5.30.0",
