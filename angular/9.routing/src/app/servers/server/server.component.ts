@@ -20,9 +20,11 @@ export class ServerComponent implements OnInit {
     this.route.data
       .subscribe(
         (data: Data) => {
+          // here's how it can get data from resolver, 'server' should be the same as it defind in server resolver router.
           this.server = data['server'];
         }
       );
+    // + is convert id from string to int
     // const id = +this.route.snapshot.params['id'];
     // this.server = this.serversService.getServer(id);
     // this.route.params
