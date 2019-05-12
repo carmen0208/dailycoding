@@ -37,7 +37,7 @@ export class CourseDialogComponent implements OnInit, AfterViewInit {
 
     }
 
-    // Difference between mergeMap and concateMap is mergeMap would not wait util the first
+    // Difference between mergeMap and concatMap is mergeMap would not wait util the first
     // observiable is finished. it would fire the observable at the same time.
     ngOnInit() {
       this.form.valueChanges

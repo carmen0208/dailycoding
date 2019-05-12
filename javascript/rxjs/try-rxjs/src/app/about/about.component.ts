@@ -64,10 +64,23 @@ export class AboutComponent implements OnInit {
     // result$.subscribe(console.log);
 
     // interval(1000) increase 1 for every 1 second.
-    const interval1$ = interval(1000);
-    const interval2$ = interval1$.pipe(map(val => 10 * val));
-    const result$ = merge(interval1$, interval2$);
-    result$.subscribe(console.log);
+    // const interval1$ = interval(1000);
+    // const interval2$ = interval1$.pipe(map(val => 10 * val));
+    // const result$ = merge(interval1$, interval2$);
+    // result$.subscribe(console.log);
+
+
+    // unsubscribe
+
+    // const interval$ = interval(1000);
+    // const sub = interval$.subscribe(console.log);
+    // setTimeout( () => sub.unsubscribe(), 5000);
+
+    // test unsubscribe for httpObservable
+    const http$ = createHttpObservable('/api/courses');
+    const sub = http$.subscribe(console.log);
+
+    setTimeout(() => sub.unsubscribe(), 0 );
   }
 
 
