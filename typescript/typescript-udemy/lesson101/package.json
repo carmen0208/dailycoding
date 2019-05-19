@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "es6": "./node_modules/.bin/http-server -c-1 .",
+    "es6": "tsc sample/*.ts  && ./node_modules/.bin/http-server -c-1 .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
