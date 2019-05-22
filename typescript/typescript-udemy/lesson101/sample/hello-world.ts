@@ -14,7 +14,7 @@ function Person(name) {
         // }, 1000)
 
         setTimeout(() => {
-            console.log('Hello my name is ' + this.name);
+            console.log(`Hello my name is ${this.name}`);
         },1000);
     }
 }
