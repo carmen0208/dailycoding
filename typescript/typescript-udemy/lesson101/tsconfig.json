@@ -4,6 +4,6 @@
     "module": "commonjs",
     "noImplicitAny": false,
     "sourceMap": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
   }
 }

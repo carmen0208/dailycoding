@@ -5,10 +5,8 @@ var counter = 1.2;
 console.log(0.2 + 0.4);
 console.log((Math.floor((0.2 + 0.4) * 1000)) / 1000);
 var person2 = {
-    hasName: {
-        firstName: 'Carmen',
-        lastName: 'Liu'
-    },
+    firstName: 'Carmen',
+    lastName: 'Liu',
     address: 'Guess where is my address'
 };
 function createHelloMessage(name) {
@@ -32,3 +30,14 @@ var shap = ["Shaq", PlayerPosition.Forward];
 var player = [kobe, james, shap];
 console.log('enum test');
 console.log(player);
+// Null check
+kobe = undefined;
+// when javascript don't have return value, it returns undefined
+// how typescript catch the error:
+function createHelloMessage2(name) {
+    if (name) {
+        return "Hello, my name is " + name;
+    }
+    // if I didn't put this in place, the typescript check would have a error about undefined error
+    return '';
+}
