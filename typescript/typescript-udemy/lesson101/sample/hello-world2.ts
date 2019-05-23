@@ -1,7 +1,7 @@
-// import {buildPersonData} from "./buildPersonData";
-function buildPersonData({firstName, lastName}, address) {
-    return `${firstName} ${lastName} ${address}`;
-}
+import {buildPersonData} from "./buildPersonData.js";
+// function buildPersonData({firstName, lastName}, address) {
+//     return `${firstName} ${lastName} ${address}`;
+// }
 
 const firstName = 'Carmen',
     lastName = 'Liu',
@@ -15,4 +15,4 @@ const personData = {
 
 const address = [...partialAddress, '1024']
 
-// console.log(buildPersonData(personData, address))
+console.log(buildPersonData(personData, address))

@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <title>The Complete Typescript Course</title>
 
+    <script src="https://npmcdn.com/systemjs@0.19.27/dist/system.src.js"></script>
     <script src="sample/hello-world.js"></script>
-    <script src="sample/hello-world2.js"></script>
+
+    <script>
+        System.import('sample/hello-world2.js');
+    </script>
     <script src="sample/typescript-offical-object.js"></script>
     <script src="sample/typescript-offical-function.js"></script>
 </head>
