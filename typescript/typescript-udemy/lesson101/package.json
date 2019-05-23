@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "es6": "tsc sample/*.ts  && ./node_modules/.bin/http-server -c-1 .",
+    "compile": "tsc sample/*.ts",
+    "es6": "npm run compile  && ./node_modules/.bin/http-server -c-1 .",
+    "types-examples": "npm run compile  && node ./sample/learning-types.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
