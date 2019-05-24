@@ -1,6 +1,9 @@
-declare interface FirstFunction {
-  <T>(array: ArrayLike<T>): T
-}
-declare interface MyLodash {
-  first: FirstFunction
+declare module "lodash" {
+  interface FirstFunction {
+    <T>(array: ArrayLike<T>): T
+  }
+  interface MyLodash {
+    first: FirstFunction
+  }
+  export const _: MyLodash;
 }
