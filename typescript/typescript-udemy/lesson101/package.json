@@ -8,7 +8,7 @@
     "es6": "npm run compile  && ./node_modules/.bin/http-server -c-1 .",
     "types-examples": "npm run compile  && node ./sample/learning-types.js",
     "types-examples2": "npm run compile  && node ./sample/learning-types2.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:server": "./node_modules/.bin/ts-node ./server/server.ts"
   },
   "author": "",
   "license": "ISC",
@@ -17,9 +17,12 @@
     "@types/node": "^12.0.2",
     "http-server": "^0.11.1",
     "ts-node": "^8.1.1",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "@types/sequelize": "4.0.38"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "pg": "^6.1.0",
+    "sequelize": "^3.24.6"
   }
 }
