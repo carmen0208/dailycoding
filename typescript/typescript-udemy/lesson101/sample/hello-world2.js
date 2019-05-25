@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var buildPersonData_js_1 = require("./buildPersonData.js");
 // function buildPersonData({firstName, lastName}, address) {
 //     return `${firstName} ${lastName} ${address}`;
@@ -11,3 +11,4 @@ var personData = {
 };
 var address = partialAddress.concat(['1024']);
 console.log(buildPersonData_js_1.buildPersonData(personData, address));
+//# sourceMappingURL=hello-world2.js.map

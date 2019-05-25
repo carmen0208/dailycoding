@@ -12,3 +12,4 @@ function getArea(shape) {
 var shapeF = { kind: "circle", radius: 10 };
 var areaF = getArea(shapeF);
 console.log(areaF);
+//# sourceMappingURL=typescript-offical-function.js.map

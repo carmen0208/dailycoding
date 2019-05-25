@@ -41,3 +41,4 @@ function createHelloMessage2(name) {
     // if I didn't put this in place, the typescript check would have a error about undefined error
     return '';
 }
+//# sourceMappingURL=learning-types.js.map

@@ -5,5 +5,11 @@
     "noImplicitAny": false,
     "sourceMap": true,
     "strictNullChecks": true,
-  }
+  },
+  "include": [
+    "sample/**/*.ts"
+  ],
+  "exclude": [
+    "node_module"
+  ]
 }
