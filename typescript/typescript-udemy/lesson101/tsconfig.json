@@ -10,6 +10,6 @@
     "sample/**/*.ts"
   ],
   "exclude": [
-    "node_module"
+    "node_modules/**/*.ts"
   ]
 }

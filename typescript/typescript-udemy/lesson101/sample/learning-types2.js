@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 // const _:MyLodash = require('lodash')
 // import * as _ from 'lodash'
 var lodash_1 = require("lodash");
@@ -11,4 +11,3 @@ var client = {
     lastName: 'Li'
 };
 var customer = client;
-//# sourceMappingURL=learning-types2.js.map

@@ -1,4 +1,4 @@
-interface HasName {
+interface HaveName {
   name: string;
 }
 

@@ -56,4 +56,3 @@ var Square = /** @class */ (function (_super) {
 var shape = new Circle(10);
 var area = shape.getArea();
 console.log(area);
-//# sourceMappingURL=typescript-offical-object.js.map

@@ -6,4 +6,3 @@ var sortByName = function (a) {
     return result;
 };
 sortByName([]);
-//# sourceMappingURL=typescript-offical-example.js.map

@@ -17,4 +17,3 @@ function Person(name) {
 }
 var person = new Person('Bob');
 person.sayHi();
-//# sourceMappingURL=hello-world.js.map
