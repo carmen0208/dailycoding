@@ -736,7 +736,7 @@ On his next walk with Qc Na, Anton attempted to impress his master by saying "Ma
 
 <slide class="fullscreen bg-blue" youtube=".light id='n0F6hSpxaFc' autoplay loop" :class="aligncenter">
 
-## **Are you going to Rapehu with us?**
+## **Are you going to the Mountain?**
 
 `Join me and Clements`
 
