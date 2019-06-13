@@ -10,7 +10,7 @@ plugins:
 Why{.text-landing.animated.fadeInDown.delay-800}
 # Functional Programming {.text-landing.text-shadow}
 
-By Carmen Liu {.text-intro}
+By Carmen Liu, James Bond {.text-intro}
 
 
 <slide class="aligncenter">
@@ -83,18 +83,11 @@ each(numbers, print);
 #### Advantages?
 
 :::column
-* Second Class's citizen pain{.tobuild.fadeIn}
-``` {.tobuild.fadeIn}
-MethodA: hey little methodB, I need your help,
-         can you help me
-MethodB: no, sorry, I cannot buddy, I cannot
-         do anyone’s favor because
-         my boss controlled my everything?
-MethodA: what? if I need you, what    should I do?
-MethodB: tell you boss Class A to have a
-         relationship with my Boss ClassB,
-         then you can ask my boss to call me.
-```
+* Story: Second Class's citizen pain{.tobuild.fadeIn}
+
+
+* James and Carmen's are methods of 2 different classes. One day Carmen need James's help, and here's their conversation:{.tobuild}
+
 ----
 * What's that mean? {.tobuild.fadeIn}
 
@@ -646,10 +639,6 @@ Fun
 Maybe 2 is better than 1
 :::
 
-<slide class="bg-blue aligncenter" image="https://cdn-images-1.medium.com/max/2560/1*ntgBBkoEipqEHD-NpgAspg.png .light">
-* Question: Do you like Functional Programming?
-* Question: What's your favour Paradigm and Why?
-
 <slide>
 :::card {.quote}
 ![](./resource/aladdin.png)
@@ -672,11 +661,7 @@ Maybe 2 is better than 1
 
 ## Thank you!
 
-<slide>
-
-Q&A?
-when you can apply function?
-* when you think of immutability
-* when you think of reduce side effects
-* when you start to use function as a parameter
-* when you do composition
+<slide class="bg-blue aligncenter" image="https://cdn-images-1.medium.com/max/2560/1*ntgBBkoEipqEHD-NpgAspg.png .light">
+Q$A?
+* Question: Do you like Functional Programming?
+* Question: What's your favour Paradigm and Why?
