@@ -15,23 +15,8 @@ By Carmen Liu {.text-intro}
 
 <slide class="aligncenter">
 
-# Let's Start with a Code Snappit
-
-
-<slide >
-## Function
-----
-
-```javascript
-function printOneToFive() {
-  const lists = [1,2,3,4,5]
-  for (i = 0; i < lists.length; i++) {
-    console.log(`this is ${list[i]}`)
-  }
-}
-
-printOneToFive();
-```
+# Let's Start
+# with a Code Snappit {.tobuild}
 
 <slide >
 ## Function
@@ -40,7 +25,6 @@ printOneToFive();
 
 ```javascript
 function printOneToFive() {
-  //Hardcoded Data....
   const lists = [1,2,3,4,5]
   for (i = 0; i < lists.length; i++) {
     console.log(`this is ${list[i]}`)
@@ -49,6 +33,7 @@ function printOneToFive() {
 
 printOneToFive();
 ```
+* Hardcoded List Data ....{.tobuild}
 ----
 ```javascript {.tobuild.fadeInRight}
 function printList(lists) {
@@ -105,13 +90,10 @@ MethodA: hey little methodB, I need your help,
 MethodB: no, sorry, I cannot buddy, I cannot
          do anyone’s favor because
          my boss controlled my everything?
-MethodA: what? What that mean?
-MethodB: I only take Class B’s command?
-MethodA: okey, if I need you, what should I do?
+MethodA: what? if I need you, what    should I do?
 MethodB: tell you boss Class A to have a
          relationship with my Boss ClassB,
          then you can ask my boss to call me.
-MethodA: okey….. let me try. Thanks buddy.
 ```
 ----
 * What's that mean? {.tobuild.fadeIn}
@@ -138,6 +120,7 @@ new Car(new Engine()).go()
 ```
 
 <slide>
+Second Class Citizen's Pain
 ## Stratgy Pattern
 ----
 ![](./resource/strategy.png) {.aligncenter}
@@ -241,9 +224,6 @@ console.log(doOperation(data, substract)) //5
 console.log(doOperation(data, multiply)) //50
 
 ```
-
-
-
 <slide>
 ## Decorator Pattern
 ----
@@ -378,6 +358,12 @@ Reuseability
 
 :::
 
+<slide>
+* Question: Who have used functions like map, reduce, each?  {.tobuild}
+* Question: Who are using functions like map, reduce, each all the time?  {.tobuild}
+## Yell!!! You are all functional ninja!!!!  {.tobuild}
+
+
 <slide class="bg-green">
 
 ## Concept 2: Pure Function
@@ -392,6 +378,7 @@ function f(x) {
     y = (2 * Math.pow( x, 2 )) + 3;
 }
 f( 2 );
+...
 y;
 ```
 
@@ -450,9 +437,12 @@ time;
 * I/O: database, file system. http, registry, etc
 ```
 ---
-Question: Could our application be absolutely pure? {.tobuild}
-* There's pure function not there's no pure application. {.tobuild}
-* By using pure function, the purpose is to try it bast to reduce side effect and controls the scope our side effect {.tobuild}
+* Question: Could our application be absolutely pure? {.tobuild}
+* -> No {.tobuild}
+* So... Why bother? {.tobuild}
+* By using pure function, the purpose is to try it best to{.tobuild}
+  * -> reduce side effect{.tobuild}
+  * -> controls the scope our side effect {.tobuild}
 <slide class="bg-blue aligncenter" video="https://webslides.tv/static/videos/working.mp4 poster='https://webslides.tv/static/images/working.jpg' .dark">
 
 :::{.content-left}
@@ -476,6 +466,12 @@ Easily testable, easy to debug
 Easier to reason about (Readbility)
 
 :::
+
+<slide class="bg-green">
+* Quiz: Does each function pure? {.tobuild}
+* Quiz: What about map? {.tobuild}
+## Yell!!! You are all functional ninja!!!!  {.tobuild}
+
 
 <slide class="bg-blue">
 
@@ -605,7 +601,6 @@ Thread-safety, parallelism
 
 :::
 
-
 <slide class="bg-blue aligncenter" image="https://cdn-images-1.medium.com/max/2560/1*ntgBBkoEipqEHD-NpgAspg.png .light">
 
 # 2 is better than 1
@@ -620,7 +615,13 @@ Thread-safety, parallelism
 
 !![](./resource/imperativevsdeclarative.png)
 
+<slide class="bg-blue aligncenter" image="https://cdn-images-1.medium.com/max/2560/1*ntgBBkoEipqEHD-NpgAspg.png .light">
+### but.....{.tobuild} 
+### Does 2 is better than 1?{.tobuild} 
+### What if I am a strong beliver and pretector of one paradigm?{.tobuild} 
+----
 
+!![](https://image.redbull.com/rbcom/010/2016-08-04/1331810344943_1/0001/1/3000/1/ryu-in-street-fighter-v.jpg){.tobuild}
 
 <slide class="bg-blue aligncenter" video="https://webslides.tv/static/videos/working.mp4 poster='https://webslides.tv/static/images/working.jpg' .dark">
 
@@ -638,16 +639,16 @@ Fun
 
 ## Benefit 10
 2 is better than 1
+
+---
+::fa-car::
+## Benefit 11
+Maybe 2 is better than 1
 :::
 
-<slide>
-
-The venerable master Qc Na was walking with his student, Anton. Hoping to prompt the master into a discussion, Anton said "Master, I have heard that objects are a very good thing - is this true?" Qc Na looked pityingly at his student and replied, "Foolish pupil - objects are merely a poor man's closures."
-
-Chastised, Anton took his leave from his master and returned to his cell, intent on studying closures. He carefully read the entire "Lambda: The Ultimate..." series of papers and its cousins, and implemented a small Scheme interpreter with a closure-based object system. He learned much, and looked forward to informing his master of his progress.
-
-On his next walk with Qc Na, Anton attempted to impress his master by saying "Master, I have diligently studied the matter, and now understand that objects are truly a poor man's closures." Qc Na responded by hitting Anton with his stick, saying "When will you learn? Closures are a poor man's object." At that moment, Anton became enlightened.
-> ==Anton van Straaten 6/4/2003==
+<slide class="bg-blue aligncenter" image="https://cdn-images-1.medium.com/max/2560/1*ntgBBkoEipqEHD-NpgAspg.png .light">
+* Question: Do you like Functional Programming?
+* Question: What's your favour Paradigm and Why?
 
 <slide>
 :::card {.quote}
