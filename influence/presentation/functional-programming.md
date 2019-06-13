@@ -26,7 +26,7 @@ By Carmen Liu {.text-intro}
 function printOneToFive() {
   const lists = [1,2,3,4,5]
   for (i = 0; i < lists.length; i++) {
-    console.log(`this is ${item}`)
+    console.log(`this is ${list[i]}`)
   }
 }
 
@@ -43,7 +43,7 @@ function printOneToFive() {
   //Hardcoded Data....
   const lists = [1,2,3,4,5]
   for (i = 0; i < lists.length; i++) {
-    console.log(`this is ${item}`)
+    console.log(`this is ${list[i]}`)
   }
 }
 
@@ -53,7 +53,7 @@ printOneToFive();
 ```javascript {.tobuild.fadeInRight}
 function printList(lists) {
   for (i = 0; i < lists.length; i++) {
-    console.log(`this is ${item}`)
+    console.log(`this is ${list[i]}`)
   }
 }
 
@@ -70,7 +70,7 @@ printList(numbers);
 function printList(lists) {
   for (i = 0; i < lists.length; i++) {
     //hardcoded Behavior...
-    console.log(`this is ${item}`)
+    console.log(`this is ${list[i]}`)
   }
 }
 
@@ -92,66 +92,21 @@ function print(item) {
 
 each(numbers, print);
 ```
-
-<slide >
-## Function
-----
-:::column
-
-#### Each
-```javascript
-function each(lists, fn) {
-  for (i = 0; i < lists.length; i++) {
-    fn(lists[i])
-  }
-}
-```
-
-----
-#### Map
-```javascript
-function map(lists, fn) {
-  const result = [];
-  for (i = 0; i < lists.length; i++) {
-    result.push(fn(lists[i]))
-  }
-  return result
-}
-```
-----
-#### Reduce
-```javascript
-function reduce(array, func, accumulator) {
-  const index = -1,
-    length = array == null ? 0 : array.length;
-  if (length) {
-    accumulator = array[++index];
-  }
-  while (++index < length) {
-    accumulator = func(accumulator, array[index], index, array);
-  }
-  return accumulator;
-}
-```
-
-:::
-# High Order Function {.tobuild.fadeInRight}
-
 <slide>
-## Function is the first class citizen
+## Concept 1: Function is the first class citizen
 ----
-#### Advantage ?s
+#### Advantages?
 
 :::column
-* Second Class's pain{.tobuild.fadeIn}
+* Second Class's citizen pain{.tobuild.fadeIn}
 ``` {.tobuild.fadeIn}
 MethodA: hey little methodB, I need your help,
          can you help me
 MethodB: no, sorry, I cannot buddy, I cannot
          do anyone’s favor because
-         my boss controlled my self will?
+         my boss controlled my everything?
 MethodA: what? What that mean?
-MethodB: I only take Class B’s order?
+MethodB: I only take Class B’s command?
 MethodA: okey, if I need you, what should I do?
 MethodB: tell you boss Class A to have a
          relationship with my Boss ClassB,
@@ -425,40 +380,7 @@ Reuseability
 
 <slide class="bg-green">
 
-
-## Pure Function
-----
-* Functions vs Procedure
-:::column
-
-```javascript
-function printName(name) {
-    console.log(`my mane is ${name}`)
-}
-
-printName('carmen')
-
-```
-```javascript
-let name = 'carmen'
-function printName() {
-    return `my mane is ${name}`
-}
-
-console.log(printName())
-```
-----
-```javascript
-function printName(name) {
-    return `my mane is ${name}`
-}
-printName('carmen')
-```
-
-
-<slide class="bg-green">
-
-## Pure Function
+## Concept 2: Pure Function
 * Relies on no external state.
 
 ----
@@ -481,31 +403,17 @@ function f(x) {
 var y = f( 2 );
 y;
 ```
-* Reducing Side Effects{.tobuild}
 * Easy to reason about(Read ability) {.tobuild}
-----
-##### Side Note: Types of side-effects {.tobuild}
-``` {.tobuild}
-* Global Variables
-* Call impure functions
-* Mutate arguments
-* Use ref/out arguments
-* Class variables
-* Exceptions
-* User interface. Dataime.now
-* I/O: database, file system. http, registry, etc
-```
+* Easy to predict {.tobuild}
 <slide class="bg-green">
 
-## Pure Function
+## Concept 2: Pure Function
 ----
 * Given the same input, it would have the same output
-    * Date is impure
-    * Ramdom is impure
 :::column
 ```javascript
 function getCurrentTime() {
-    return new Date().getTime();
+  return new Date().getTime();
 }
 
 const time = getCurrentTime();
@@ -515,16 +423,36 @@ time;
 ---
 ```javascript
 function getCurrentTimeFormDate(date) {
-    return date.getTime();
+  return date.getTime();
 }
 
 const time = getCurrentTimeFormDate(new Date());
 
 time;
 ```
-* Easy to predict {.tobuild}
 * Easily testable, easy to debug  {.tobuild}
 
+<slide class="bg-green">
+
+## Concept 2: Pure Function
+
+----
+* No Side Effects
+:::column
+##### Types of side-effects {.tobuild}
+``` {.tobuild}
+* Global Variables
+* Mutate arguments
+* Use ref arguments
+* Class variables
+* Exceptions
+* User interface. Dataime.now
+* I/O: database, file system. http, registry, etc
+```
+---
+Question: Could our application be absolutely pure? {.tobuild}
+* There's pure function not there's no pure application. {.tobuild}
+* By using pure function, the purpose is to try it bast to reduce side effect and controls the scope our side effect {.tobuild}
 <slide class="bg-blue aligncenter" video="https://webslides.tv/static/videos/working.mp4 poster='https://webslides.tv/static/images/working.jpg' .dark">
 
 :::{.content-left}
@@ -551,8 +479,9 @@ Easier to reason about (Readbility)
 
 <slide class="bg-blue">
 
-## Value Immutability
+## Concept 3: Value Immutability
 ----
+:::column
 ```javascript
 function sum(list) {
     var total = 0;
@@ -568,17 +497,15 @@ var nums = [ 1, 3, 9, 27, , 84 ];
 sum( nums );  // 124
 ```
 
-* Anything happen? {.tobuild}
-  * what's the nums at the end?
+* Question: Anything else happen?
 
-```{.tobuild}
+```javascript {.tobuild}
+console.log(sums)
 [1, 3, 9, 27, 0, 84]
 ```
-<slide class="bg-blue">
-## Value Immutability
 ----
 
-```javascript
+```javascript {.tobuild}
 function sum(list) {
     var tempList = list.slice()
     var total = 0;
@@ -618,7 +545,7 @@ public class ExtrinsicLockCounter {
 * Thread safety{.tobuild}
 ---
 
-##### Sidenote:{.tobuild}
+##### Question? should we make all things immutable?{.tobuild}
 ```{.tobuild}
 Disadvantage:
 * Copy require:  CPU time and extra memory;
@@ -728,7 +655,7 @@ On his next walk with Qc Na, Anton attempted to impress his master by saying "Ma
 
 ---
 > Don't make American great again, make the world great.
-> Don't make OO greate again, make software great.
+> Don't make (java or lisp) greate again, make software great.
 > ==Aladdin==
 
 :::
@@ -738,7 +665,7 @@ On his next walk with Qc Na, Anton attempted to impress his master by saying "Ma
 
 ## **Are you going to the Mountain?**
 
-`Join me and Clements`
+`Join me and Clements` -> [:fa-facebook: Facebook](https://www.facebook.com/events/1211043979066455/?ti=icl){.button.ghost}
 
 <slide class="bg-purple" :class="size-50 aligncenter" image="http://h1.ioliu.cn/bing/SandiaSunrise_ZH-CN11155504388_1920x1080.jpg .dark">
 
