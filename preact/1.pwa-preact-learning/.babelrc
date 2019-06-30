@@ -1,0 +1,15 @@
+{
+  "sourceMaps": true,
+  "presets": [
+    ["@babel/preset-env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["last 2 versions", "IE >= 9"]
+      },
+      "exclude": ["transform-regenerator", "transform-async-to-generator"]
+    }]
+  ],
+  "plugins": [
+    [ "@babel/plugin-transform-react-jsx", {"pragma": "h"}]
+  ]
+}
