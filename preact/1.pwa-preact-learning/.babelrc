@@ -10,6 +10,13 @@
     }]
   ],
   "plugins": [
-    [ "@babel/plugin-transform-react-jsx", {"pragma": "h"}]
+    [ "@babel/plugin-transform-react-jsx", {"pragma": "h"}],
+    ["module:fast-async", {
+      "compiler": {
+        "promises": true,
+        "generators": false
+      },
+      "spec": true
+    }]
   ]
 }
