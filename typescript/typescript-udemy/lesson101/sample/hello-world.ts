@@ -21,3 +21,18 @@ function Person(name) {
 
 const person = new Person('Bob')
 person.sayHi();
+
+
+function sayHi(name) {
+    this.name = name
+    setTimeout(() => {
+        console.log(`Hello my name is ${this.name}`);
+    },1000);
+}
+
+function sayHi2(name) {
+    this.name = name
+    setTimeout(function(){
+        console.log(`Hello my name is ${this.name}`);
+    },1000);
+}

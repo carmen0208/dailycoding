@@ -39,3 +39,6 @@ HELP.md
 ### VS Code ###
 .vscode/
 
+### Terraform
+.terraform/
+**/account.json
