@@ -1,18 +1,12 @@
 import { createStore } from "redux";
+import reducer from './reducer';
 
-function todos(state=[], action) {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return state.concat([action.text])
-    default:
-      return state
-  }
+const INITIAL = {
+  todos: [{
+    text: 'Initialization'
+  }]
 }
 
-const INITIAL = [
-  'User Redux'
-]
-
-export default createStore(todos,
+export default createStore(reducer,
   INITIAL, // https://github.com/zalmoxisus/redux-devtools-extension
   window.devToolsExtension && window.devToolsExtension() );

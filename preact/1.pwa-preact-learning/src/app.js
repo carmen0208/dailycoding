@@ -1,12 +1,13 @@
 import { Component, h } from 'preact';
-import '../styles/style.scss';
+import './styles/style.scss';
+import Todo from './components/todo';
 
 class App extends Component {
   render() {
     return (
-      <section>
-        <h1>Hello World !</h1>
-      </section>
+      <div id="app">
+        <Todo />
+      </div>
     );
   }
 }
