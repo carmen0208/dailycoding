@@ -47,6 +47,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: './dist',
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3000,
+    hot: true
   }
 }
