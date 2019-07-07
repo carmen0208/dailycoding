@@ -2,29 +2,42 @@ import { h, render } from "preact";
 import App from './app';
 import store from './store';
 import { Provider } from 'preact-redux';
-// console.log('Hello World')
-let root = document.body.firstElementChild;
+import { initDevTools } from 'preact/devtools';
+// // console.log('Hello World')
+
+// let root = document.body.firstElementChild;
+// const renderring = Component => {
+//   root = render(
+//     (<div id="outer">
+//       <Provider store={store}>
+//         <Component />
+//       </Provider>
+//     </div>)
+//     ,document.body, root)
+// }
+const root = document.getElementById('root')
 render(
-    (<div id='outer'>
+  (<div id="outer">
       <Provider store={store}>
         <App />
       </Provider>
-    </div>),document.body);
+    </div>),root);
 
+// rendering(App);
+// initDevTools();
+// store.dispatch({
+//   type: 'ADD_TODO',
+//   text: 'Read the docs'
+// })
 
-store.dispatch({
-  type: 'ADD_TODO',
-  text: 'Read the docs'
-})
+// store.dispatch({
+//   type: 'ADD_TODO',
+//   text: 'Read the docs2'
+// })
 
-store.dispatch({
-  type: 'ADD_TODO',
-  text: 'Read the docs2'
-})
+// store.dispatch({
+//   type: 'ADD_TODO',
+//   text: 'Read the docs3'
+// })
 
-store.dispatch({
-  type: 'ADD_TODO',
-  text: 'Read the docs3'
-})
-
-console.log(store.getState())
+// console.log(store.getState())
