@@ -23,8 +23,6 @@ render(
       </Provider>
     </div>),root);
 
-// rendering(App);
-// initDevTools();
 // store.dispatch({
 //   type: 'ADD_TODO',
 //   text: 'Read the docs'
